@@ -224,7 +224,6 @@ TEST_FUNCTION(umocktypes_stringify_char_with_max_value)
     // arrange
     char input = CHAR_MAX;
     char expected_string[32];
-    char input = 127;
 
     // act
     char* result = umocktypes_stringify_char(&input);
