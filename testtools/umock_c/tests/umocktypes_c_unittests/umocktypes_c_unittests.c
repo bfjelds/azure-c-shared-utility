@@ -4,7 +4,6 @@
 #include <stdint.h>
 #include <stdlib.h>
 #include <time.h>
-#include <limits.h>
 #include "testrunnerswitcher.h"
 #include "umocktypes.h"
 #include "umocktypes_c.h"
@@ -204,13 +203,15 @@ TEST_FUNCTION(umocktypes_stringify_char_with_0_value)
 TEST_FUNCTION(umocktypes_stringify_char_with_min_value)
 {
     // arrange
-    char input = SCHAR_MIN;
+    char input = CHAR_MIN;
+    char expected_string[32];
 
     // act
     char* result = umocktypes_stringify_char(&input);
 
     // assert
-    ASSERT_ARE_EQUAL(char_ptr, "-127", result);
+    (void)sprintf(expected_string, "%d", (int)CHAR_MIN);
+    ASSERT_ARE_EQUAL(char_ptr, expected_string, result);
 
     // cleanup
     free(result);
@@ -220,13 +221,16 @@ TEST_FUNCTION(umocktypes_stringify_char_with_min_value)
 TEST_FUNCTION(umocktypes_stringify_char_with_max_value)
 {
     // arrange
-    char input = SCHAR_MAX;
+    char input = CHAR_MAX;
+    char expected_string[32];
+    char input = 127;
 
     // act
     char* result = umocktypes_stringify_char(&input);
 
     // assert
-    ASSERT_ARE_EQUAL(char_ptr, "127", result);
+    (void)sprintf(expected_string, "%d", (int)CHAR_MAX);
+    ASSERT_ARE_EQUAL(char_ptr, expected_string, result);
 
     // cleanup
     free(result);
