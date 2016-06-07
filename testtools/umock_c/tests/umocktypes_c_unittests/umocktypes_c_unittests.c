@@ -204,7 +204,7 @@ TEST_FUNCTION(umocktypes_stringify_char_with_0_value)
 TEST_FUNCTION(umocktypes_stringify_char_with_min_value)
 {
     // arrange
-    char input = CHAR_MIN;
+    char input = SCHAR_MIN;
 
     // act
     char* result = umocktypes_stringify_char(&input);
@@ -220,7 +220,7 @@ TEST_FUNCTION(umocktypes_stringify_char_with_min_value)
 TEST_FUNCTION(umocktypes_stringify_char_with_max_value)
 {
     // arrange
-    char input = CHAR_MAX;
+    char input = SCHAR_MAX;
 
     // act
     char* result = umocktypes_stringify_char(&input);
