@@ -203,13 +203,13 @@ TEST_FUNCTION(umocktypes_stringify_char_with_0_value)
 TEST_FUNCTION(umocktypes_stringify_char_with_min_value)
 {
     // arrange
-    char input = -127 - 1;
+    char input = CHAR_MIN;
 
     // act
     char* result = umocktypes_stringify_char(&input);
 
     // assert
-    ASSERT_ARE_EQUAL(char_ptr, "-128", result);
+    ASSERT_ARE_EQUAL(char_ptr, "-127", result);
 
     // cleanup
     free(result);
@@ -219,7 +219,7 @@ TEST_FUNCTION(umocktypes_stringify_char_with_min_value)
 TEST_FUNCTION(umocktypes_stringify_char_with_max_value)
 {
     // arrange
-    char input = 127;
+    char input = CHAR_MAX;
 
     // act
     char* result = umocktypes_stringify_char(&input);
