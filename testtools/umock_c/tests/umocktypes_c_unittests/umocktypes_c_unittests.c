@@ -4,6 +4,7 @@
 #include <stdint.h>
 #include <stdlib.h>
 #include <time.h>
+#include <limits.h>
 #include "testrunnerswitcher.h"
 #include "umocktypes.h"
 #include "umocktypes_c.h"
